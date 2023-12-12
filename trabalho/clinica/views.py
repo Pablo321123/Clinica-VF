@@ -6,7 +6,7 @@ def entrarClinica(request):
 
 def agendamentoClinica(request):
     return render(request, 'clinica/agendamento.html')
-    
+
 def indexClinica(request):
     return render(request, 'clinica/index.html')
     
@@ -27,3 +27,6 @@ def novoPacienteClinica(request):
 
 def pacientesClinica(request):
     return render(request, 'clinica/pacientes.html')
+
+def todosAgendamentosClinica(request):
+    return render(request, 'clinica/todosagendamentos.html')
