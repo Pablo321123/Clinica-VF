@@ -1,0 +1,138 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>Novo Funcionário</title>
+</head>
+<body>
+    <div class="barra-navegacao">
+        <ul>
+            <li><a href="novofuncionario"><i class="fa-solid fa-address-card"></i> Novo Funcionário</a></li>
+            <li><a href="novopaciente"><i class="fa-solid fa-user-plus"></i> Novo Paciente</a></li>
+            <li><a href="funcionarios"><i class="fa-solid fa-users-between-lines"></i> Funcionários</a></li>
+            <li><a href="pacientes"><i class="fa-solid fa-user-injured"></i> Pacientes</a></li>
+            <li><a href="enderecos"><i class="fa-solid fa-location-dot"></i>Endereços</a></li>
+            <li><a href="todosagendamentos"><i class="fa-solid fa-clipboard-list"></i> Todos os Agendamentos</a></li>
+            <li class="login"><a href="index"><i class="fa-solid fa-right-to-bracket"></i> Sair</a></li>
+        </ul>
+    </div>
+
+    <div class="intro">
+        <h1>Cadastrar Novo Paciente</h1>
+    </div>
+
+    <div class="nvend">
+        <form>
+            <fieldset>
+                <div class="campo">
+                    <label>Nome:</label>
+                    <input type="text" name="nome" id="nome" required>
+                </div>
+
+                <div class="campo">
+                    <label>Email:</label>
+                    <input type="text" required>
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <div class="campo">
+                    <label>Telefone:</label>
+                    <input type="text" required>
+                </div>
+
+                <div class="campo">
+                    <label>CEP:</label>
+                    <input name="CEP" id="CEP" required pattern="\d{5}-\d{3}"/ required>
+                </div>
+            </fieldset>
+            
+            <fieldset>
+                <div class="campo">
+                    <label>Logradouro:</label>
+                    <input type="text" required>
+                </div>
+
+                <div class="campo">
+                    <label>Bairro:</label>
+                    <input type="text" required>
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <div class="campo">
+                    <label>Cidade:</label>
+                    <input type="text" required>
+                </div>
+
+                <div class="campo">
+                    <label>Complemeto (opcional):</label>
+                    <input type="text">
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <div class="campo">
+                    <label>Estado:</label>
+                    <select >
+                        <option selected disabled value="">Selecione o estado</option>
+                        <option value="AC">Acre</option>
+                        <option value="AL">Alagoas</option>
+                        <option value="AP">Amapá</option>
+                        <option value="AM">Amazonas</option>
+                        <option value="BA">Bahia</option>
+                        <option value="CE">Ceará</option>
+                        <option value="DF">Distrito Federal</option>
+                        <option value="ES">Espírito Santo</option>
+                        <option value="GO">Goiás</option>
+                        <option value="MA">Maranhão</option>
+                        <option value="MT">Mato Grosso</option>
+                        <option value="MS">Mato Grosso do Sul</option>
+                        <option value="MG">Minas Gerais</option>
+                        <option value="PA">Pará</option>
+                        <option value="PB">Paraíba</option>
+                        <option value="PR">Paraná</option>
+                        <option value="PE">Pernambuco</option>
+                        <option value="PI">Piauí</option>
+                        <option value="RJ">Rio de Janeiro</option>
+                        <option value="RN">Rio Grande do Norte</option>
+                        <option value="RS">Rio Grande do Sul</option>
+                        <option value="RO">Rondônia</option>
+                        <option value="RR">Roraima</option>
+                        <option value="SC">Santa Catarina</option>
+                        <option value="SP">São Paulo</option>
+                        <option value="SE">Sergipe</option>
+                        <option value="TO">Tocantins</option>
+                    </select>
+                </div>
+
+                <div class="campo">
+                    <label>Peso</label>
+                    <input type="date" required>
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <div class="campo">
+                    <label>Altura:</label>
+                    <input type="text" required>
+                </div>
+
+                <div class="campo">
+                    <label>Tipo Sanguíneo:</label>
+                    <input type="text" required>
+                </div>
+            </fieldset>
+            
+            
+            <button type="submit" class="botao">Cadastrar</button>
+
+           
+        </form>
+    </div>
+
+    <script src="https://kit.fontawesome.com/abceda3d36.js" crossorigin="anonymous"></script>
+</body>
+</html>

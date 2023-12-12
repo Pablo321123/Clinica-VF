@@ -1,0 +1,99 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+        <title>Novo Endereço</title>
+    </head>
+
+    <body>
+        <div class="barra-navegacao">
+            <ul>
+                <li><a href="index"><i class="fa-solid fa-hospital"></i>Clínica Viver Feliz</a></li>
+                <li><a href="galeria"><i class="fa-solid fa-photo-film"></i>Galeria</a></li>
+                <li><a href="novoendereco"><i class="fa-solid fa-location-dot"></i>Novo Endereço</a></li>
+                <li><a href="agendamento"><i class="fa-solid fa-clock"></i>Agendar Consulta</a></li>
+                <li class="login"><a href="entrar"><i class="fa-solid fa-right-to-bracket"></i>Entrar</a></li>
+            </ul>
+        </div>
+        
+        <div class="intro">
+            <h1>Cadastrar Endereço</h1>
+            <br>
+            <p>Preencha os campos abaixo para adicionar um novo endereço</p>
+        </div>
+
+        <div class="nvend">
+            <form>
+                <fieldset>
+                    <div class="campo">
+                        <label>CEP:</label>
+                        <input name="CEP" id="CEP" required pattern="\d{5}-\d{3}"/ required>
+                    </div>
+
+                    <div class="campo">
+                        <label>Logradouro:</label>
+                        <input type="text" required>
+                    </div>
+                </fieldset>
+                
+                <fieldset>
+                    <div class="campo">
+                        <label>Bairro:</label>
+                        <input type="text" required>
+                    </div>
+
+                    <div class="campo">
+                        <label>Cidade:</label>
+                        <input type="text" required>
+                    </div>
+                </fieldset>
+
+                <fieldset>
+                    <div class="campo">
+                        <label>Estado:</label>
+                        <select >
+                            <option selected disabled value="">Selecione o estado</option>
+                            <option value="AC">Acre</option>
+                            <option value="AL">Alagoas</option>
+                            <option value="AP">Amapá</option>
+                            <option value="AM">Amazonas</option>
+                            <option value="BA">Bahia</option>
+                            <option value="CE">Ceará</option>
+                            <option value="DF">Distrito Federal</option>
+                            <option value="ES">Espírito Santo</option>
+                            <option value="GO">Goiás</option>
+                            <option value="MA">Maranhão</option>
+                            <option value="MT">Mato Grosso</option>
+                            <option value="MS">Mato Grosso do Sul</option>
+                            <option value="MG">Minas Gerais</option>
+                            <option value="PA">Pará</option>
+                            <option value="PB">Paraíba</option>
+                            <option value="PR">Paraná</option>
+                            <option value="PE">Pernambuco</option>
+                            <option value="PI">Piauí</option>
+                            <option value="RJ">Rio de Janeiro</option>
+                            <option value="RN">Rio Grande do Norte</option>
+                            <option value="RS">Rio Grande do Sul</option>
+                            <option value="RO">Rondônia</option>
+                            <option value="RR">Roraima</option>
+                            <option value="SC">Santa Catarina</option>
+                            <option value="SP">São Paulo</option>
+                            <option value="SE">Sergipe</option>
+                            <option value="TO">Tocantins</option>
+                        </select>
+                    </div>
+
+                    <div class="campo">
+                        <label>Complemento (opcional)</label>
+                        <input type="text">
+                    </div>
+                </fieldset>
+                <button type="submit" class="botao">Cadastrar</button>
+            </form>
+        </div>
+        
+        <script src="https://kit.fontawesome.com/abceda3d36.js" crossorigin="anonymous"></script>
+    </body>
+</html>
