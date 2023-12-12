@@ -1,0 +1,38 @@
+{% load static %}
+
+<!DOCTYPE html>
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+        <title>Login</title>
+    </head>
+
+    <body>
+        <div class="barra-navegacao">
+            <ul>
+                <li><a href="index.html"><i class="fa-solid fa-hospital"></i>Clínica Viver Feliz</a></li>
+                <li><a href="galeria.html"><i class="fa-solid fa-photo-film"></i>Galeria</a></li>
+                <li><a href="novoendereco.html"><i class="fa-solid fa-location-dot"></i>Novo Endereço</a></li>
+                <li><a href="agendamento.html"><i class="fa-solid fa-clock"></i>Agendar Consulta</a></li>
+                <li class="login"><a href="entrar.html"><i class="fa-solid fa-right-to-bracket"></i>Entrar</a></li>
+            </ul>
+        </div>
+        
+        <div class="logar">
+            <form>
+                <fieldset>
+                    <div class="email">
+                        <label>E-mail:</label>
+                        <input type="text" required>
+                    </div>
+
+                    <div class="senha">
+                        <label>Senha:</label>
+                        <input type="text" required>
+                    </div>
+                </fieldset>
+                <button type="submit" class="botao">Entrar</button>
+            </form>
+        </div>
+        <script src="https://kit.fontawesome.com/abceda3d36.js" crossorigin="anonymous"></script>
+    </body>

@@ -1,0 +1,267 @@
+body {
+    margin:0px;
+    /*background-color: rgb(246, 250, 246);*/
+ }
+ 
+ .barra-navegacao {
+     border: 1px solid rgb(11, 211, 195);
+     background-color: rgb(11, 211, 195);
+ }
+ 
+ .barra-navegacao ul li {
+     display: inline;
+     color: white;
+     font-family: Verdana, Geneva, Tahoma, sans-serif;
+     font-size: 12pt;
+     margin-right: 50px;
+ } 
+
+ .barra-navegacao a:link{
+    color:white;
+    text-decoration: none;
+ }
+
+ .barra-navegacao a:visited{
+    color:white;
+    text-decoration: none;
+ }
+
+.login{
+    float: right;
+}
+
+#dov {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+ .fa-solid.fa-hospital, .fa-solid.fa-photo-film, .fa-solid.fa-location-dot, .fa-solid.fa-clock, .fa-solid.fa-right-to-bracket{
+    color: white;
+    margin-right: 10px;
+    margin-left: 5px;
+}
+
+.intro h1{
+    font-weight: bolder;
+    color: rgb(11, 211, 195);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 20pt;
+    text-align: center;
+}
+
+.intro p {
+    font-weight: bolder;
+    color: rgb(130, 130, 130);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 10pt;
+    margin-left: 12%;
+}
+
+.nvend { 
+    width: 690px;
+    margin-left: auto;
+    margin-right: auto; 
+    
+}
+
+.consulta { 
+    width: 690px;
+    margin-left: auto;
+    margin-right: auto; 
+    
+}
+
+.logar{
+    width: 690px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 200px;
+}
+
+.nvend fieldset{
+    margin-top: 25px;
+    border: 0px;
+}
+
+.logar fieldset{
+    border: 0px;
+}
+
+.consulta fieldset {
+    border: 0px;
+}
+.nvend fieldset div {
+    float:  left;
+    margin-right: 10%;
+    display: inline;
+}
+
+.consulta fieldset div {
+    float:  left;
+    margin-right: 5%;
+    display: inline;
+    margin-top: 5px;
+}
+
+.campo, .soumedico {
+    font-weight: bolder;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: rgb(130, 130, 130);
+    margin-bottom: 30px;
+}
+
+.campo2 {
+    font-weight: bolder;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: rgb(130, 130, 130);
+    margin-bottom: 30px;
+}
+
+.senha, .email {
+    font-weight: bolder;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: rgb(130, 130, 130);
+    margin-bottom: 30px;
+    margin-left: 185px;
+    margin-right: 200px;
+}
+
+.campo input {
+    width: 255px;
+    height: 35px;
+}
+
+.campo2 input {
+    width: 265px;
+    height: 35px;
+}
+
+.senha input, .email input {
+    width: 250px;
+    height: 25px;
+}
+
+.campo select{
+    height: 35px;
+    width: 255px;
+}
+
+.campo2 select{
+    height: 35px;
+    width: 270px;
+}
+
+.campo input, .campo select {
+    padding: 0.2em;
+    border: 1px solid black;
+    box-shadow: 2px 2px 2px rgba(0,0,0,0.2);
+    display: block;
+    border-radius: 5px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: rgb(147, 146, 146);
+    font-weight: bolder;
+    font-size: 10pt;
+    
+}
+
+.campo2 input, .campo2 select {
+    padding: 0.2em;
+    border: 1px solid black;
+    box-shadow: 2px 2px 2px rgba(0,0,0,0.2);
+    display: block;
+    border-radius: 5px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: rgb(147, 146, 146);
+    font-weight: bolder;
+    font-size: 10pt;
+    
+}
+
+.email input, .senha input{
+    padding: 0.2em;
+    border: 1px solid black;
+    box-shadow: 2px 2px 2px rgba(0,0,0,0.2);
+    display: block;
+    border-radius: 5px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: rgb(147, 146, 146);
+    font-weight: bolder;
+    font-size: 10pt;
+}
+
+.botao{
+    color: white;
+    background-color: rgb(11, 211, 195);
+    font-weight: bolder;
+    font-size: 12pt;
+    border: 2px solid rgb(11, 211, 195);
+    text-align: center;
+    box-shadow: 2px 2px 2px rgba(0,0,0,0.2);
+    width: 250px;
+    height: 35px;
+    display: block;
+    margin-left: 200px;
+    margin-right: auto;
+    margin-bottom: 20px;
+
+}
+
+.nome h1{
+    font-weight: bolder;
+    color: rgb(11, 211, 195);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 20pt;
+    text-align: center;
+}
+
+.infos {
+    display: inline-grid;
+    grid-template-columns: auto auto auto;
+    padding: 10px;
+    margin-left: 15%;
+}
+
+.info {
+    margin-left: 11%;
+}
+
+.infos .item{
+    margin-right: 25%;
+}
+
+.infos .item h2{
+    font-weight: bolder;
+    color: rgb(11, 211, 195);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 15pt;
+}
+
+.infos .item p{
+    font-weight: bolder;
+    color: rgb(147, 146, 146);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 10pt;
+    margin-left: 10%;
+    margin-right: 10%;
+    text-align: justify;
+}
+
+
+.info h2{
+    font-weight: bolder;
+    color: rgb(11, 211, 195);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 15pt;
+    margin-left: 5%;
+}
+
+.info p{
+    font-weight: bolder;
+    color: rgb(147, 146, 146);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 10pt;
+    margin-left: 10%;
+    margin-right: 17%;
+    text-align: justify;
+}
