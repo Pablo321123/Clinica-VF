@@ -1,0 +1,44 @@
+{% load static %}
+
+<!DOCTYPE html>
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+        <title>Login</title>
+    </head>
+
+    <body>
+        <div class="barra-navegacao">
+            <ul>
+                <li><a href="index"><i class="fa-solid fa-hospital"></i>Clínica Viver Feliz</a></li>
+                <li><a href="galeria"><i class="fa-solid fa-photo-film"></i>Galeria</a></li>
+                <li><a href="novoendereco"><i class="fa-solid fa-location-dot"></i>Novo Endereço</a></li>
+                <li><a href="agendamento"><i class="fa-solid fa-clock"></i>Agendar Consulta</a></li>
+                <li class="login"><a href="entrar"><i class="fa-solid fa-right-to-bracket"></i>Entrar</a></li>
+            </ul>
+        </div>
+
+        <div class="errorlogin">
+            <p>E-mail ou Senha Inválidos</p>
+        </div>
+        
+        
+        <div class="logar">
+            <form method="POST">
+                {% csrf_token %}
+                <fieldset>
+                    <div class="email">
+                        <label>E-mail:</label>
+                        <input name="email" id="email" type="text" value="{{email}}" required>
+                    </div>
+
+                    <div class="senha">
+                        <label>Senha:</label>
+                        <input name="senha" id="senha" type="password" value="{{senha}}" required>
+                    </div>
+                </fieldset>
+                <button type="submit" class="botao">Entrar</button>
+            </form>
+        </div>
+        <script src="https://kit.fontawesome.com/abceda3d36.js" crossorigin="anonymous"></script>
+    </body>

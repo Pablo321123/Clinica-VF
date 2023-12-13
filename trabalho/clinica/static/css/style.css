@@ -288,3 +288,8 @@ body {
     color: rgb(147, 146, 146);
     background-color: rgb(232, 232, 232);
 }
+
+.errorlogin p{
+    text-align: center;
+    color: rgb(182, 37, 37)
+}
