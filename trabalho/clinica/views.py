@@ -30,3 +30,6 @@ def pacientesClinica(request):
 
 def todosAgendamentosClinica(request):
     return render(request, 'clinica/todosagendamentos.html')
+
+def funcionariosClinica(request):
+    return render(request, 'clinica/funcionarios.html')
