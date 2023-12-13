@@ -19,11 +19,12 @@
         </div>
         
         <div class="logar">
-            <form>
+            <form method="POST">
+                {% csrf_token %}
                 <fieldset>
                     <div class="email">
                         <label>E-mail:</label>
-                        <input type="text" required>
+                        <input id="email" name="email" type="text" required >
                     </div>
 
                     <div class="senha">

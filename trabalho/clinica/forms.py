@@ -28,3 +28,5 @@ class PacienteForm(forms.ModelForm):
         fields = ('peso', 'altura', 'tiposanguineo')
 
 #PacienteFormSet = inlineformset_factory(Pessoa, Paciente, form=novoPacienteForm, fields=['peso', 'altura', 'tiposanguineo'])
+
+    

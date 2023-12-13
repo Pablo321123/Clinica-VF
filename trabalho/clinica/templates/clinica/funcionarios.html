@@ -20,6 +20,45 @@
         </ul>
     </div>
 
+    <div class="intro">
+        <h1>Funcionários</h1>
+    </div>
+
+    <div class="exibirfunc">
+        <table class="tabelada">
+            <tr class="init">
+                <td>Codigo</td> 
+                <td>Nome</td>
+                <td>Salário</td>
+                <td>Data de Início do Contrato</td>
+                <td>E-mail</td>
+                <td>Telefone</td>
+                <td>CEP</td>
+                <td>Logradouro</td>
+                <td>Bairro</td>
+                <td>Cidade</td>
+                <td>Estado</td>
+            </tr>
+            {% for funcionario in funcionarios %}
+            <tr>
+                <td>{{funcionario.codigo}}</td> 
+                <td>{{funcionario.codigo.nome}}</td>
+                <td>{{funcionario.salario}}</td>
+                <td>{{funcionario.datacontrato}}</td>
+                <td>{{funcionario.codigo.email}}</td>
+                <td>{{funcionario.codigo.telefone}}</td>
+                <td>{{funcionario.codigo.cep}}</td>
+                <td>{{funcionario.codigo.logradouro}}</td>
+                <td>{{funcionario.codigo.bairro}}</td>
+                <td>{{funcionario.codigo.cidade}}</td>
+                <td>{{funcionario.codigo.estado}}</td>
+            </tr>
+            {% endfor %}
+
+        </table>
+        
+    </div>
+
     <script src="https://kit.fontawesome.com/abceda3d36.js" crossorigin="anonymous"></script>
 </body>
 </html>

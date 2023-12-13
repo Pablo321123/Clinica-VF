@@ -19,6 +19,32 @@
         </ul>
     </div>
 
+    <div class="intro">
+        <h1>Pacientes</h1>
+    </div>
+    <div class="exibirfunc">
+        <table class="tabelada">
+            <tr class="init">
+                <td>Código</td> 
+                <td>Nome</td>
+                <td>Peso(kg)</td>
+                <td>Altura(cm)</td>
+                <td>Tipo Sanguíneo</td>
+            </tr>
+            {% for pac in pacientes %}
+            <tr>
+                <td>{{pac.codigo}}</td> 
+                <td>{{pac.codigo.nome}}</td>
+                <td>{{pac.peso}}</td>
+                <td>{{pac.altura}}</td>
+                <td>{{pac.tiposanguineo}}</td>
+            </tr>
+            {% endfor %}
+
+        </table>
+        
+    </div>
+
     <script src="https://kit.fontawesome.com/abceda3d36.js" crossorigin="anonymous"></script>
 </body>
 </html>

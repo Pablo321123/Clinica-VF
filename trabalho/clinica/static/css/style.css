@@ -265,3 +265,26 @@ body {
     margin-right: 17%;
     text-align: justify;
 }
+
+.tabelada {
+    border-collapse: collapse;
+    margin-left: 5%;
+}
+
+
+.tabelada, .tabelada td, .tabelada th {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    border: 2px solid rgb(147, 146, 146); /* Adiciona bordas grossas */
+    text-align: center; /* Centraliza o conteúdo */
+    padding: 8px; /* Adiciona um espaçamento interno para melhorar a aparência */
+    color: rgb(147, 146, 146);
+}
+
+.init{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    border: 2px solid rgb(147, 146, 146); /* Adiciona bordas grossas */
+    text-align: center; /* Centraliza o conteúdo */
+    padding: 8px; /* Adiciona um espaçamento interno para melhorar a aparência */
+    color: rgb(147, 146, 146);
+    background-color: rgb(232, 232, 232);
+}

@@ -95,10 +95,12 @@ def novoPacienteClinica(request):
         return render(request, 'clinica/novopaciente.html', {'form_pessoa': form_pessoa, 'form_paciente': form_paciente})
     
 def pacientesClinica(request):
-    return render(request, 'clinica/pacientes.html')
+    pacientes = Paciente.objects.all().order_by('codigo')
+    return render(request, 'clinica/pacientes.html', {'pacientes': pacientes})
 
 def todosAgendamentosClinica(request):
     return render(request, 'clinica/todosagendamentos.html')
 
 def funcionariosClinica(request):
-    return render(request, 'clinica/funcionarios.html')
+    funcionarios = Funcionario.objects.all().order_by('codigo')
+    return render(request, 'clinica/funcionarios.html', {'funcionarios': funcionarios})
