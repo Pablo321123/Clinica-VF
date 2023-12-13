@@ -55,7 +55,6 @@ def agendamentoClinica(request):
     for medico in medicos:
         if medico.especialidade not in especialidade:
             especialidade.append(medico.especialidade)
-    print(especialidade)
 
     
     if request.method == 'POST':    
@@ -69,9 +68,7 @@ def agendamentoClinica(request):
 
     else:
         especialidade_id = request.GET.get('espec')
-        print(especialidade_id)
         medesp = Medico.objects.filter(especialidade=especialidade_id)
-        print(medesp)
         form = novoAgendamentoForm()
         return render(request, 'clinica/agendamento.html', {'especialidade':especialidade, 'medesp': medesp})
     
@@ -167,5 +164,12 @@ def funcionariosClinica(request):
     if settings.LOGADO:
         funcionarios = Funcionario.objects.all().order_by('codigo')
         return render(request, 'clinica/funcionarios.html', {'funcionarios': funcionarios})
+    else:
+        return render(request, 'clinica/index.html')
+
+def todosProntuarios(request):
+    if settings.LOGADO:
+        prontuarios = ProntuarioEletronico.objects.all().order_by('codigo')
+        return render(request, 'clinica/prontuarios.html', {'prontuarios': prontuarios})
     else:
         return render(request, 'clinica/index.html')

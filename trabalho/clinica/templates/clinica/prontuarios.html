@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    <title>Pacientes</title>
+    <title>Prontuários</title>
 </head>
 <body>
     <div class="barra-navegacao">
@@ -21,31 +21,28 @@
     </div>
 
     <div class="intro">
-        <h1>Pacientes</h1>
+        <h1>Prontuários</h1>
     </div>
     <div class="exibirfunc">
         <table class="tabelada">
             <tr class="init">
-                <td>Código</td> 
-                <td>Nome</td>
-                <td>Peso(kg)</td>
-                <td>Altura(cm)</td>
-                <td>Tipo Sanguíneo</td>
+                <td>Código</td>
+                <td>Nome</td> 
+                <td>Medicamentos</td>
+                <td>Atestados</td>
+                <td>Exames</td>
             </tr>
-            {% for pac in pacientes %}
+            {% for pront in prontuarios %}
             <tr>
-                <td>{{pac.codigo}}</td> 
-                <td>{{pac.codigo.nome}}</td>
-                <td>{{pac.peso}}</td>
-                <td>{{pac.altura}}</td>
-                <td>{{pac.tiposanguineo}}</td>
+                <td>{{pront.codigo}}</td>
+                <td>{{pront.codigo.nome}}</td> 
+                <td>{{pront.medicamentos}}</td>
+                <td>{{pront.atestados}}</td>
+                <td>{{pront.exames}}</td>
             </tr>
             {% endfor %}
-
         </table>
-        
     </div>
-
     <script src="https://kit.fontawesome.com/abceda3d36.js" crossorigin="anonymous"></script>
 </body>
 </html>
