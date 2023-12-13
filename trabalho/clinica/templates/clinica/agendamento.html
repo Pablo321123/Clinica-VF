@@ -30,10 +30,10 @@
                 <fieldset>
                     <div class="campo2">
                         <label>Especialidade:</label>
-                        <select>
+                        <select value="espec">
                             <option selected disabled value="">Informe a Especialidade</option-->
-                            {% for medico in medicos %}
-                            <option value="Especialidade">{{medico.especialidade}}</option>
+                            {% for esp in especialidade %}
+                            <option value="Especialidade">{{esp}}</option>
                             {% endfor %}
                         </select>
                     </div>
@@ -41,7 +41,10 @@
                     <div class="campo2">
                         <label>Médico:</label>
                         <select>
-                            <option selected disabled value="">Escolha o Médico</option>
+                            <option selected disabled value="">Escolha o Médico</option-->
+                            {% for med in medesp %}
+                            <option value="Codigo">{{med.codigo}}</option>
+                            {% endfor %}
                         </select>
                     </div>
                 </fieldset>

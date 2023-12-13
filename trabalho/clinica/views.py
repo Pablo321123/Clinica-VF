@@ -7,6 +7,32 @@ def entrarClinica(request):
 
 def agendamentoClinica(request):
     medicos = Medico.objects.all()
+    especialidade = []
+    for medico in medicos:
+        if medico.especialidade not in especialidade:
+            especialidade.append(medico.especialidade)
+    print(especialidade)
+
+    
+    if request.method == 'POST':    
+        form = novoAgendamentoForm(request.POST)
+
+        if form.is_valid:
+            task = form.save(commit=False)
+            task.codigo = int(str(id.codigo)) + 1
+            task.save()
+            return redirect('/agendamentos')
+
+    else:
+        especialidade_id = request.GET.get('espec')
+        print(especialidade_id)
+        medesp = Medico.objects.filter(especialidade=especialidade_id)
+        print(medesp)
+        form = novoAgendamentoForm()
+        return render(request, 'clinica/agendamento.html', {'especialidade':especialidade, 'medesp': medesp})
+    
+    '''
+    medicos = Medico.objects.all()
     ids = Agenda.objects.all()
     for id in ids:
         id = ids
@@ -18,12 +44,12 @@ def agendamentoClinica(request):
             task = form.save(commit=False)
             task.codigo = int(str(id.codigo)) + 1
             task.save()
-            return redirect('/todosagendamentos')
+            return redirect('/agendamentos')
 
     else:
         form = novoAgendamentoForm()
         return render(request, 'clinica/agendamento.html', {'medicos':medicos})
-
+    '''
 def indexClinica(request):
     return render(request, 'clinica/index.html')
     
