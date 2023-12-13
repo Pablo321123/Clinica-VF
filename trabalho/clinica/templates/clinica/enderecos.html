@@ -19,6 +19,29 @@
         </ul>
     </div>
 
+    <div class="intro">
+        <h1>Endereços</h1>
+    </div>
+    <div class="exibirfunc">
+        <table class="tabelada">
+            <tr class="init">
+                <td>CEP</td> 
+                <td>logradouro</td>
+                <td>Bairro</td>
+                <td>Cidade</td>
+                <td>Estado</td>
+            </tr>
+            {% for end in enderecos %}
+            <tr>
+                <td>{{end.cep}}</td> 
+                <td>{{end.logradouro}}</td>
+                <td>{{end.bairro}}</td>
+                <td>{{end.cidade}}</td>
+                <td>{{end.estado}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
     <script src="https://kit.fontawesome.com/abceda3d36.js" crossorigin="anonymous"></script>
 </body>
 </html>

@@ -19,6 +19,34 @@
         </ul>
     </div>
 
+    <div class="intro">
+        <h1>Agendamentos</h1>
+    </div>
+    <div class="exibirfunc">
+        <table class="tabelada">
+            <tr class="init">
+                <td>Código</td> 
+                <td>Data</td>
+                <td>Horário</td>
+                <td>Nome</td>
+                <td>E-mail</td>
+                <td>Telefone</td>
+                <td>Código Médico</td>
+            </tr>
+            {% for age in agendamentos %}
+            <tr>
+                <td>{{age.codigo}}</td> 
+                <td>{{age.data_agenda}}</td>
+                <td>{{age.horario}}</td>
+                <td>{{age.nome}}</td>
+                <td>{{age.email}}</td>
+                <td>{{age.telefone}}</td>
+                <td>{{age.codigomedico}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+
     <script src="https://kit.fontawesome.com/abceda3d36.js" crossorigin="anonymous"></script>
 </body>
 </html>

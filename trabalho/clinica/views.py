@@ -54,7 +54,8 @@ def indexClinica(request):
     return render(request, 'clinica/index.html')
     
 def enderecosClinica(request):
-    return render(request, 'clinica/enderecos.html')
+    enderecos = Endereco.objects.all().order_by('cep')
+    return render(request, 'clinica/enderecos.html', {'enderecos':enderecos})
 
 def galeriaClinica(request):
     return render(request, 'clinica/galeria.html')
@@ -99,7 +100,8 @@ def pacientesClinica(request):
     return render(request, 'clinica/pacientes.html', {'pacientes': pacientes})
 
 def todosAgendamentosClinica(request):
-    return render(request, 'clinica/todosagendamentos.html')
+    agendamentos = Agenda.objects.all().order_by('codigo')
+    return render(request, 'clinica/todosagendamentos.html', {'agendamentos':agendamentos})
 
 def funcionariosClinica(request):
     funcionarios = Funcionario.objects.all().order_by('codigo')
