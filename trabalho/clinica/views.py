@@ -6,7 +6,23 @@ def entrarClinica(request):
     return render(request, 'clinica/entrar.html')
 
 def agendamentoClinica(request):
-    return render(request, 'clinica/agendamento.html')
+    medicos = Medico.objects.all()
+    ids = Agenda.objects.all()
+    for id in ids:
+        id = ids
+    
+    if request.method == 'POST':    
+        form = novoAgendamentoForm(request.POST)
+
+        if form.is_valid:
+            task = form.save(commit=False)
+            task.codigo = int(str(id.codigo)) + 1
+            task.save()
+            return redirect('/todosagendamentos')
+
+    else:
+        form = novoAgendamentoForm()
+        return render(request, 'clinica/agendamento.html', {'medicos':medicos})
 
 def indexClinica(request):
     return render(request, 'clinica/index.html')

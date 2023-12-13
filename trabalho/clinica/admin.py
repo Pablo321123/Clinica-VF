@@ -4,4 +4,4 @@ from .models import *
 
 admin.site.register(Pessoa)
 admin.site.register(Funcionario)
-admin.site.register(Endereco)
+admin.site.register(Medico)

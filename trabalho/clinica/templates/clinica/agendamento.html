@@ -25,12 +25,16 @@
         </div>
 
         <div class="consulta">
-            <form>
+            <form method="POST">
+                {% csrf_token %}
                 <fieldset>
                     <div class="campo2">
                         <label>Especialidade:</label>
                         <select>
-                            <option selected disabled value="">Informe a Especialidade</option>
+                            <option selected disabled value="">Informe a Especialidade</option-->
+                            {% for medico in medicos %}
+                            <option value="Especialidade">{{medico.especialidade}}</option>
+                            {% endfor %}
                         </select>
                     </div>
 

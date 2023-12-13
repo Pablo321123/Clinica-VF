@@ -6,3 +6,9 @@ class novoEnderecoForm(forms.ModelForm):
     class Meta:
         model = Endereco
         fields = ('cep', 'logradouro', 'bairro', 'cidade', 'estado')
+
+class novoAgendamentoForm(forms.ModelForm):
+    
+    class Meta:
+        model = Agenda
+        fields = ('data_agenda', 'horario', 'nome', 'email', 'telefone', 'codigomedico')
