@@ -5,6 +5,7 @@ from .forms import *
 from django.conf import settings
 
 global logado
+
 def entrarClinica(request):
     if request.method == 'POST':    
         form = LoginForm(request.POST)
