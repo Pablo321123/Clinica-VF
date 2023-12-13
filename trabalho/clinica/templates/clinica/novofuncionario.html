@@ -24,7 +24,9 @@
     </div>
 
     <div class="nvend">
-        <form>
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
             <fieldset>
                 <div class="campo">
                     <label>Nome:</label>

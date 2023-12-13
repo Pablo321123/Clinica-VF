@@ -1,5 +1,6 @@
-from django.shortcuts import render
-from django.http import HttpResponse
+from django.shortcuts import render, redirect
+from .models import *
+from .forms import *
 
 def entrarClinica(request):
     return render(request, 'clinica/entrar.html')
@@ -17,7 +18,18 @@ def galeriaClinica(request):
     return render(request, 'clinica/galeria.html')
 
 def novoEnderecoClinica(request):
-    return render(request, 'clinica/novoendereco.html')
+    if request.method == 'POST':    
+        form = novoEnderecoForm(request.POST)
+
+        if form.is_valid:
+            task = form.save(commit=False)
+            task.save()
+            return redirect('/index')
+
+    else:
+        form = novoEnderecoForm()
+        return render(request, 'clinica/novoendereco.html', {'form':form})
+
 
 def novoFuncionarioClinica(request):
     return render(request, 'clinica/novofuncionario.html')
