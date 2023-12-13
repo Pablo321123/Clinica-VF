@@ -5,7 +5,6 @@ from .forms import *
 from django.conf import settings
 
 global logado
-
 def entrarClinica(request):
     if request.method == 'POST':    
         form = LoginForm(request.POST)
@@ -16,18 +15,38 @@ def entrarClinica(request):
                 pessoa = Pessoa.objects.get(email=email)
                 print(pessoa)
             except:
-                return HttpResponse('Email ou Senha incorreto!')
+                return render(request, 'clinica/entrar_error.html')
             funcionario = Funcionario.objects.get(codigo=pessoa)
             if funcionario.senha == senha:
                 settings.LOGADO = True
                 return redirect('/novofuncionario')
             else:
-                return HttpResponse('Email ou Senha incorreta!')
+                return render(request, 'clinica/entrar_error.html')
 
     else:
         form = LoginForm()
         return render(request, 'clinica/entrar.html')
-    
+
+def entrarError(request):
+    if request.method == 'POST':    
+        form = LoginForm(request.POST)
+        if form.is_valid():
+            email = form.cleaned_data['email']
+            senha = form.cleaned_data['senha']
+            try:
+                pessoa = Pessoa.objects.get(email=email)
+                print(pessoa)
+            except:
+                return render(request, 'clinica/entrar_error.html')
+            funcionario = Funcionario.objects.get(codigo=pessoa)
+            if funcionario.senha == senha:
+                return redirect('/novofuncionario')
+            else:
+                return render(request, 'clinica/entrar_error.html')
+
+    else:
+        form = LoginForm()
+        return render(request, 'clinica/entrar.html')
 
 def agendamentoClinica(request):
     medicos = Medico.objects.all()
