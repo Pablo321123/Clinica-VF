@@ -77,8 +77,23 @@ def novoFuncionarioClinica(request):
     return render(request, 'clinica/novofuncionario.html')
 
 def novoPacienteClinica(request):
-    return render(request, 'clinica/novopaciente.html')
+    if request.method == 'POST':
+        form_pessoa = novaPessoaForm(request.POST)
+        form_paciente = PacienteForm(request.POST)
 
+        if form_pessoa.is_valid() and form_paciente.is_valid():
+            pessoa = form_pessoa.save()
+            pessoas = Pessoa.objects.last()
+            paciente = form_paciente.save(commit=False)
+            paciente.codigo = pessoas
+            paciente.save()
+            return redirect('/index')
+
+    else:
+        form_pessoa = novaPessoaForm(request.POST)
+        form_paciente = PacienteForm(request.POST)
+        return render(request, 'clinica/novopaciente.html', {'form_pessoa': form_pessoa, 'form_paciente': form_paciente})
+    
 def pacientesClinica(request):
     return render(request, 'clinica/pacientes.html')
 

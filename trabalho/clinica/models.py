@@ -62,3 +62,17 @@ class Endereco(models.Model):
     bairro = models.CharField(max_length=40)
     cidade = models.CharField(max_length=40)
     estado = models.CharField(max_length=20)
+
+class PessoaPaciente(models.Model):
+    codigo = models.IntegerField(primary_key=True)
+    nome = models.CharField(max_length=70)
+    email = models.CharField(max_length=70)
+    telefone = models.CharField(max_length=70)
+    cep = models.CharField(max_length=70)
+    logradouro = models.CharField(max_length=70)
+    bairro = models.CharField(max_length=70)
+    cidade = models.CharField(max_length=70)
+    estado = models.CharField(max_length=70)
+    peso = models.DecimalField(max_digits=6, decimal_places=2)
+    altura = models.DecimalField(max_digits=6, decimal_places=2)
+    tiposanguineo = models.CharField(max_length=3)
