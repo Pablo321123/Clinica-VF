@@ -76,3 +76,7 @@ class PessoaPaciente(models.Model):
     peso = models.DecimalField(max_digits=6, decimal_places=2)
     altura = models.DecimalField(max_digits=6, decimal_places=2)
     tiposanguineo = models.CharField(max_length=3)
+
+class Login(models.Model):
+    email = models.CharField(max_length=70)
+    senha = models.CharField(max_length=70)

@@ -21,12 +21,16 @@ class novaPessoaForm(forms.ModelForm):
         fields = ('nome', 'email', 'telefone', 'cep', 'logradouro', 'bairro', 'cidade', 'estado')
 
 class PacienteForm(forms.ModelForm):
-    #pessoa = forms.ModelChoiceField(queryset=Pessoa.objects.all())
 
     class Meta:
         model = Paciente
         fields = ('peso', 'altura', 'tiposanguineo')
 
-#PacienteFormSet = inlineformset_factory(Pessoa, Paciente, form=novoPacienteForm, fields=['peso', 'altura', 'tiposanguineo'])
+class LoginForm(forms.ModelForm):
+    email=forms.CharField()
+    senha=forms.CharField(widget=forms.PasswordInput)
+    class Meta:
+        model = Login
+        fields = ('email', 'senha')
 
     

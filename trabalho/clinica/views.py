@@ -1,9 +1,29 @@
-from django.shortcuts import render, redirect
+from django.http import HttpResponse
+from django.shortcuts import render, redirect, get_object_or_404
 from .models import *
 from .forms import *
 
 def entrarClinica(request):
-    return render(request, 'clinica/entrar.html')
+    if request.method == 'POST':    
+        form = LoginForm(request.POST)
+        if form.is_valid():
+            email = form.cleaned_data['email']
+            senha = form.cleaned_data['senha']
+            try:
+                pessoa = Pessoa.objects.get(email=email)
+                print(pessoa)
+            except:
+                return HttpResponse('Email ou Senha incorreto!')
+            funcionario = Funcionario.objects.get(codigo=pessoa)
+            if funcionario.senha == senha:
+                return redirect('/novofuncionario')
+            else:
+                return HttpResponse('Email ou Senha incorreta!')
+
+    else:
+        form = LoginForm()
+        return render(request, 'clinica/entrar.html')
+    
 
 def agendamentoClinica(request):
     medicos = Medico.objects.all()
