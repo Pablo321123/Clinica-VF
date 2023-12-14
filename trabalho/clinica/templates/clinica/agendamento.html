@@ -30,21 +30,18 @@
                 <fieldset>
                     <div class="campo2">
                         <label>Especialidade:</label>
-                        <select value="espec">
+                        <select value="espec" id="major">
                             <option selected disabled value="">Informe a Especialidade</option-->
                             {% for esp in especialidade %}
-                            <option value="Especialidade">{{esp}}</option>
+                            <option value="{{esp}}">{{esp}}</option>
                             {% endfor %}
                         </select>
                     </div>
 
                     <div class="campo2">
                         <label>Médico:</label>
-                        <select>
+                        <select id="doctors">
                             <option selected disabled value="">Escolha o Médico</option-->
-                            {% for med in medesp %}
-                            <option value="Codigo">{{med.codigo}}</option>
-                            {% endfor %}
                         </select>
                     </div>
                 </fieldset>
@@ -82,5 +79,25 @@
         
         
         <script src="https://kit.fontawesome.com/abceda3d36.js" crossorigin="anonymous"></script>
+        <script>
+            selectMajor = document.getElementById('major')
+            selectDoctor = document.getElementById('doctors')
+            
+            function searchDoctorByMajor(major){               
+                fetch(`http://localhost:8000/load_doctors/?espec=${major}`)
+                .then(res => res.text())
+                .then( data => {                    
+                    console.log(data)   
+
+                    selectDoctor.innerHTML = data
+
+                }
+                )
+            }
+
+            selectMajor.onchange = (e) => {                 
+                searchDoctorByMajor(selectMajor.value)
+            }
+        </script>
     </body>
 </html>
