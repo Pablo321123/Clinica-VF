@@ -11,8 +11,6 @@ class Pessoa(models.Model):
     cidade = models.CharField(max_length=70)
     estado = models.CharField(max_length=70)
 
-    def __str__(self):
-        return str(self.codigo) + " - " + self.nome
 
 class Funcionario(models.Model):
     datacontrato = models.DateField()
@@ -45,9 +43,6 @@ class Paciente(models.Model):
     altura = models.DecimalField(max_digits=6, decimal_places=2)
     tiposanguineo = models.CharField(max_length=3)
     codigo = models.OneToOneField(Pessoa, primary_key=True, on_delete=models.CASCADE)
-
-    def __str__(self):
-        return str(self.codigo)
 
 class ProntuarioEletronico(models.Model):
     anamnese = models.CharField(max_length=1000)

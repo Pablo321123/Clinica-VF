@@ -1,0 +1,68 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>Novo Prontuário</title>
+</head>
+<body>
+    <div class="barra-navegacao">
+        <ul>
+            <li><a href="novofuncionario"><i class="fa-solid fa-address-card"></i> Novo Funcionário</a></li>
+            <li><a href="novopaciente"><i class="fa-solid fa-user-plus"></i> Novo Paciente</a></li>
+            <li><a href="funcionarios"><i class="fa-solid fa-users-between-lines"></i> Funcionários</a></li>
+            <li><a href="pacientes"><i class="fa-solid fa-user-injured"></i> Pacientes</a></li>
+            <li><a href="enderecos"><i class="fa-solid fa-location-dot"></i>Endereços</a></li>
+            <li><a href="todosagendamentos"><i class="fa-solid fa-clipboard-list"></i> Todos os Agendamentos</a></li>
+            <li><a href="prontuarios"><i class="fa-solid fa-stethoscope"></i> Prontuários</a></li>
+            <li class="login"><a href="index"><i class="fa-solid fa-right-to-bracket"></i> Sair</a></li>
+        </ul>
+    </div>
+
+    <div class="intro">
+        <h1>Cadastrar Novo Prontuário</h1>
+    </div>
+
+    <div class="nvend">
+        <form method="POST">
+            {% csrf_token %}
+            <fieldset>
+                <div class="campo">
+                    <label>Anamnese:</label>
+                    <input name="anamnese" id="anamnese" type="text" value="{{anamnese}}">
+                </div>
+
+                <div class="campo">
+                    <label>Medicamentos:</label>
+                    <input name="medicamentos" id="medicamentos" type="text" value="{{medicamentos}}">
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <div class="campo">
+                    <label>Atestados:</label>
+                    <input name="atestados" id="atestados" type="text" value="{{atestados}}">
+                </div>
+
+                <div class="campo">
+                    <label>Exames</label>
+                    <input name="exames" id="exames" type="text" value="{{exames}}">
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <div class="campo">
+                    <label>Codigo Paciente:</label>
+                    <input name="nome" id="nome" type="text" value="{{nome}}">
+                </div>
+            </fieldset>
+
+            <button type="submit" class="botao">Cadastrar</button>
+
+        </form>
+    </div>
+
+    <script src="https://kit.fontawesome.com/abceda3d36.js" crossorigin="anonymous"></script>
+</body>
+</html>

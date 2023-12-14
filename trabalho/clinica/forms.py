@@ -33,4 +33,14 @@ class LoginForm(forms.ModelForm):
         model = Login
         fields = ('email', 'senha')
 
-    
+class ProntuarioEletronicoForm(forms.ModelForm):
+
+    class Meta:
+        model = ProntuarioEletronico
+        fields = ('anamnese', 'medicamentos', 'atestados', 'exames')
+
+class CodigoForm(forms.ModelForm):
+    nome = models.CharField()
+    class Meta:
+        model = Pessoa
+        fields = ['nome']

@@ -152,14 +152,15 @@ def novoPacienteClinica(request):
                 paciente.save()
                 return redirect("/index")
 
-            else:
-                form_pessoa = novaPessoaForm(request.POST)
-                form_paciente = PacienteForm(request.POST)
-                return render(
-                    request,
-                    "clinica/novopaciente.html",
-                    {"form_pessoa": form_pessoa, "form_paciente": form_paciente},
-                )
+        else:
+            form_pessoa = novaPessoaForm(request.POST)
+            form_paciente = PacienteForm(request.POST)
+            return render(
+                request,
+                "clinica/novopaciente.html",
+                {"form_pessoa": form_pessoa, "form_paciente": form_paciente},
+            )
+        
     else:
         return render(request, "clinica/index.html")
 
@@ -201,13 +202,11 @@ def todosProntuarios(request):
 
 
 def loadDoctor(request):
-    medicos = Medico.objects.all()
 
     especialidade_name = request.GET.get("espec")
     doctors_names = Medico.objects.filter(especialidade=especialidade_name)
 
     return render(request, "clinica/doctor_options.html", {"doctors": doctors_names})
-
 
 def verifyHours(request):
     dataSelecionada_raw = request.GET.get("dataAgendamento")
@@ -251,3 +250,23 @@ def verifyHours(request):
     print(response_data)
 
     return JsonResponse(response_data)
+
+def cadastrarProntuario(request):
+    if settings.LOGADO:
+        if request.method == "POST":
+            form_pessoa = CodigoForm(request.POST)
+            form_prontuario = ProntuarioEletronicoForm(request.POST)
+            if form_pessoa.is_valid() and form_prontuario.is_valid():
+                codigo = form_pessoa.cleaned_data["nome"]
+                pessoa = Pessoa.objects.get(codigo=codigo)
+                form_prontuario.save(commit=False)
+                paciente = Paciente.objects.get(codigo=pessoa)
+                form_prontuario.codigo = pessoa
+                return render(request, "clinica/prontuarios.html")
+            return render(request, "clinica/index.html")
+        else:
+            form_pessoa = CodigoForm(request)
+            form_prontuario = ProntuarioEletronicoForm(request)
+            return render(request, "clinica/cadastrarprontuario.html")
+    else:
+        return render(request, "clinica/index.html")
