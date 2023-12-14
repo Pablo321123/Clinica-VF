@@ -49,12 +49,12 @@
                 <fieldset>
                     <div class="campo2">
                         <label>Data:</label>
-                        <input type="date" required>
+                        <input type="date" name="dataAgendamento" id='appointmentDate' required>
                     </div>
 
                     <div class="campo2">
                         <label>Horário:</label>
-                        <select>
+                        <select id="appointmentsHours">
                             <option selected disabled value="">Selecione o Horário da Consulta</option>
                         </select>
                     </div>
@@ -80,24 +80,48 @@
         
         <script src="https://kit.fontawesome.com/abceda3d36.js" crossorigin="anonymous"></script>
         <script>
+
             selectMajor = document.getElementById('major')
             selectDoctor = document.getElementById('doctors')
+            selectAppoitments = document.getElementById('appointmentsHours')
+            inputDate = document.getElementById('appointmentDate')
             
             function searchDoctorByMajor(major){               
                 fetch(`http://localhost:8000/load_doctors/?espec=${major}`)
                 .then(res => res.text())
                 .then( data => {                    
                     console.log(data)   
-
                     selectDoctor.innerHTML = data
-
-                }
+                    }
                 )
+            }
+
+            function verifyAppointmentAvaibles(date){
+                console.log(selectDoctor.value)
+                fetch(`http://localhost:8000/verifyHours/?dataAgendamento=${date},codigo=${selectDoctor.value}`) // YYYY-MM-DD 2023-12-13
+                .then(res => res.json())
+                .then(data => {                   
+                    console.log(data)
+
+                    if(!data.length){
+                        console.log('Lista Vazia')
+                    }else{
+                        data.map(consulta => {
+                            console.log(consulta);
+                        });                        
+                    }
+                })
             }
 
             selectMajor.onchange = (e) => {                 
                 searchDoctorByMajor(selectMajor.value)
             }
+
+            inputDate.addEventListener('change', () => {
+                selectedDate = inputDate.value                
+                verifyAppointmentAvaibles(selectedDate)
+            })
+
         </script>
     </body>
 </html>

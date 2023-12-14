@@ -1,8 +1,9 @@
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import *
 from .forms import *
 from django.conf import settings
+from datetime import datetime
 
 global logado
 
@@ -205,6 +206,48 @@ def loadDoctor(request):
     especialidade_name = request.GET.get("espec")
     doctors_names = Medico.objects.filter(especialidade=especialidade_name)
 
-    print(doctors_names)
-
     return render(request, "clinica/doctor_options.html", {"doctors": doctors_names})
+
+
+def verifyHours(request):
+    dataSelecionada_raw = request.GET.get("dataAgendamento")
+
+    # Separando a data da parte adicional
+    dataPartes = dataSelecionada_raw.split(",")
+    
+    # Usando apenas a primeira parte como a data
+    dataSelecionada = dataPartes[0].strip()
+
+    try:
+        # Convertendo a data para o formato esperado
+        dataSelecionada = datetime.strptime(dataSelecionada, "%Y-%m-%d").date()
+    except ValueError:
+        return HttpResponse("Formato de data inválido")
+
+    codDoctor = request.GET.get("codigo")    
+    print(codDoctor)
+    
+    consultasAgendadas = Agenda.objects.filter(data_agenda=dataSelecionada, codigomedico=codDoctor)
+
+    # Criando uma lista para armazenar os dados no formato desejado
+    agenda_list = []
+
+    # Iterando sobre as consultas e convertendo cada objeto para um dicionário
+    for agenda in consultasAgendadas:
+        agenda_dict = {
+            "codigo": agenda.codigo.id,
+            "data_agenda": agenda.data_agenda.strftime("%Y-%m-%d"),
+            "horario": agenda.horario,
+            "nome": agenda.nome,
+            "email": agenda.email,
+            "telefone": agenda.telefone,
+            "codigomedico": agenda.codigomedico,
+        }
+        agenda_list.append(agenda_dict)
+
+    # Criando a resposta JSON usando JsonResponse
+    response_data = {"consultasAgendadas": agenda_list}
+
+    print(response_data)
+
+    return JsonResponse(response_data)
